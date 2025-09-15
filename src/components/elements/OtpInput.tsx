@@ -36,7 +36,7 @@ const OTPInput = ({ onComplete }: InputProps) => {
   };
 
   return (
-    <div className="flex md:gap-x-2 gap-x-1 mt-6">
+    <div className="flex md:gap-x-2 gap-x-1 mt-6" dir='ltr'>
       {/* Render input fields dynamically based on the OTP length */}
       {Array.from({ length: 6 }, (_, index) => (
         <input
