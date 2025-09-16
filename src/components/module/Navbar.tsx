@@ -40,10 +40,10 @@ const Navbar = () => {
                     <span onClick={isOpenHandler} className='text-3xl lg:hidden ml-4'>{isOpen ? <MdClose /> : <TbMenu2/>}</span>
                     <ul className='lg:flex gap-x-10 items-center flex-1  hidden' >
                         <li onMouseEnter={()=> setIsHover(true)}>
-                            <Link href='/' className='flex items-center gap-x-2 w-fit hover:text-primary-400 rounded-2xl'>
+                            <p className='flex items-center gap-x-2 w-fit hover:text-primary-400 rounded-2xl'>
                                 <span className='text-2xl'>{isHover ? <MdClose /> : <TbMenu2/>}</span>
                                 <p>دسته بندی محصولات</p>
-                            </Link>
+                            </p>
                         </li>
                         <li onMouseEnter={()=> setIsHover(false)}>
                             <Link href='/' className='hover:text-primary-400'>خانه</Link>
@@ -100,9 +100,9 @@ const Navbar = () => {
                     isOpen? <div className='mt-8 mb-5'>
                         <ul className='flex flex-col gap-y-3 max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-thumb-Secondary-400 scrollbar-track-Secondary-100'>
                             <li>
-                                <Link onClick={ShowItemHandler} href='/' className={`py-2 px-3 ${ShowItem ? "bg-primary-600 text-primary-50" : "bg-primary-500 text-primary-50"} flex items-center gap-x-2 w-fit rounded-2xl`}>
+                                <p onClick={ShowItemHandler}  className={`py-2 px-3 ${ShowItem ? "bg-primary-600 text-primary-50" : "bg-primary-500 text-primary-50"} flex items-center gap-x-2 w-fit rounded-2xl`}>
                                     دسته بندی محصولات
-                                </Link>
+                                </p>
                             </li>
                             {ShowItem ? <li className='mr-3'>
                                 {
@@ -127,10 +127,10 @@ const Navbar = () => {
                                 <Link href='/' className='hover:text-Secondary-600'>خانه</Link>
                             </li>
                             <li >
-                                <Link href='/' className='hover:text-Secondary-600'>تماس با ما</Link>
+                                <Link href='/contactUs' className='hover:text-Secondary-600'>تماس با ما</Link>
                             </li>
                             <li >
-                                <Link href='/'className='hover:text-Secondary-600'>درباره ما</Link>
+                                <Link href='/aboutus'className='hover:text-Secondary-600'>درباره ما</Link>
                             </li>
                             <li >
                                 <Link href='/blogs' className='hover:text-Secondary-600'>بلاگ</Link>
@@ -152,10 +152,7 @@ const Navbar = () => {
                                             </li> : null)  /* Only show items that the user has access to */
                                     }
                                     </ul>
-                                    </div> : <div className='items-center flex  justify-between'>
-                                        <Link href="/register" className='lg:py-3 py-2 lh:px-8 px-5 bg-Neutral rounded-full text-Greyscale-900'>Register</Link>
-                                        <Link href="/login" className='bg-Neutral lg:py-3 py-2 lg:px-8 px-5 rounded-full text-Greyscale-900'>Login</Link>
-                                    </div>
+                                    </div> : null
                             }
                         </div>
                     </div> : null
