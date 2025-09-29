@@ -1,4 +1,4 @@
-import { LogsActions, UserRole } from "./enums/generalEnums";
+import { LogsActions, ProductStatus, UserRole } from "./enums/generalEnums";
 
 /**
  * Interface representing a system log entry
@@ -91,4 +91,73 @@ export interface Blog_Testimonials_reply_interface {
     message: string;              // Text content of the reply
     createdAt: Date;
     updatedAt?: Date;
+}
+
+
+/**
+ * Interface representing product category hierarchy
+*/
+export interface Category {
+  levelOne: string;   // First-level category (e.g., Electronics)
+  levelTwo: string;   // Second-level category (e.g., Mobile Phones)
+}
+
+/**
+ * Interface representing discount details
+*/
+export interface Product_Discount_interface {
+  haveDiscount: boolean;   // Whether product has a discount
+  discountPercent: number; // Discount percentage (0–100)
+}
+
+/**
+ * Interface representing core product information
+*/
+export interface Product_Information_interface {
+  quantity: number;       // Available quantity in stock
+  colors: string[];       // Available color options
+  price: number;          // Product price
+  discount: Product_Discount_interface;     // Discount details
+}
+
+/**
+ * Interface representing additional product attributes
+ */
+export interface Product_ExtraInformation_interface {
+  key: string;   // Attribute name (e.g., "Material")
+  value: string; // Attribute value (e.g., "Cotton")
+}
+
+/**
+ * Interface representing a product
+ */
+export interface Product_interface {
+  id?: string;                                 // Optional unique product ID
+  sku: string;                                 // Stock Keeping Unit (unique code for product)
+  title: string;                               // Product title
+  englishTitle: string;                        // English version of the product title
+  shortDescription: string;                    // Short product description (for listing views)
+  description: string;                         // Detailed product description
+  brand: string;                               // Brand name of the product
+  thumbnail: string;                           // URL of the thumbnail image
+  images: string[];                            // Array of image URLs
+  category: Category;                          // Product category details
+  information: Product_Information_interface;                    // Core product information
+  extraInformation: Product_ExtraInformation_interface[];        // Array of additional product attributes
+  tags?: string[];                             // Optional array of product tags for search/filtering
+  rating?: {                                   // Optional rating information
+    average: number;                           // Average rating (e.g., 4.5)
+    count: number;                             // Total number of ratings
+  };
+  status: ProductStatus                        // Product availability status
+  createdAt: string;                           // Product creation timestamp
+  updatedAt: string;                           // Product last updated timestamp
+  dimensions?: {                               // Optional product dimensions
+    width: number;                             // Width in cm or specified unit
+    height: number;                            // Height in cm or specified unit
+    depth: number;                             // Depth in cm or specified unit
+  };
+  weight?: number;                             // Optional product weight (in kg or specified unit)
+  isFeatured?: boolean;                        // Whether the product is marked as featured
+  isNew?: boolean;                             // Whether the product is marked as new
 }

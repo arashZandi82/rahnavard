@@ -18,3 +18,9 @@ export enum LogsActions  {
     BLOG_PUBLISHED = 'بلاگ منتشر شد',                            // Blog marked as published   
     BLOG_REJECTED = 'بلاگ رد شد',                                // Blog rejected or disapproved
 }
+
+export enum  ProductStatus {
+    AVAILABLE = "موجود",
+    OUT_OF_STOCK = "اتمام موجودی",
+    COMMING_SOON = "به زودی",
+}
