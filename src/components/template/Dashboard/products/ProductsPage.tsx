@@ -1,5 +1,7 @@
 "use client"
 
+import ProductCard from '@/elements/cards/ProductCard';
+import ProductCardSkeleton from '@/elements/cards/ProductCardSkeleton';
 import { Product_interface } from '@/types/modelTypes';
 import { useEffect, useState } from 'react';
 
@@ -40,18 +42,17 @@ const ProductsPage = () => {
         <div className='px-5 py-5 md:px-7'>
             {/* Page title */}
             <h1 className='text-Bold-Normal-title-3 mb-6'>محصولات</h1>
-            <div>
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7'>
                 {
                     loading && !Products.length ? 
                         [...Array(pagination?.limit)].map((_, i) => (
                             <div key={i} className="">
-                                <h1>...</h1>
+                                <ProductCardSkeleton />
                             </div>
                         ))
                     : Products.map((Product : Product_interface ) => (
                         <div key={Product._id} className="">
-                            {/* <PropertyCard property={property} /> */}
-                            <p>{Product.title}</p>
+                            <ProductCard product={Product} />
                         </div>
                     ))
                 }
