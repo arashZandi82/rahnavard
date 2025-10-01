@@ -133,14 +133,14 @@ export interface Product_ExtraInformation_interface {
  */
 export interface Product_interface {
   id?: string;                                 // Optional unique product ID
-  sku: string;                                 // Stock Keeping Unit (unique code for product)
   title: string;                               // Product title
   englishTitle: string;                        // English version of the product title
   shortDescription: string;                    // Short product description (for listing views)
   description: string;                         // Detailed product description
+  descriptionImages?: string[];                         // Detailed product description
   brand: string;                               // Brand name of the product
-  thumbnail: string;                           // URL of the thumbnail image
-  images: string[];                            // Array of image URLs
+  thumbnail?: string;                           // URL of the thumbnail image
+  images?: string[];                            // Array of image URLs
   category: Category;                          // Product category details
   information: Product_Information_interface;                    // Core product information
   extraInformation: Product_ExtraInformation_interface[];        // Array of additional product attributes

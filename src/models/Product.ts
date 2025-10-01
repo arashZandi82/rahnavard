@@ -38,13 +38,13 @@ const ExtraInformationSchema = new Schema(
 
 const ProductSchema = new Schema<Product_interface>(
   {
-    sku: { type: String, required: true, unique: true },
     title: { type: String, required: true },
     englishTitle: { type: String, required: true },
     shortDescription: { type: String, required: true },
     description: { type: String, required: true },
+    descriptionImages : {type: [String],default: []},
     brand: { type: String, required: true },
-    thumbnail: { type: String, required: true },
+    thumbnail: { type: String, required: false },
     images: { type: [String], default: [] },
     category: { type: CategorySchema, required: true },
     information: { type: InformationSchema, required: true },

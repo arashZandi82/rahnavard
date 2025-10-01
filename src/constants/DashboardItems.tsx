@@ -11,6 +11,10 @@ import { FaBuildingUser, FaFileCircleQuestion, FaRegCircleQuestion } from "react
 import { TbMessage } from "react-icons/tb";
 import { LuMessagesSquare } from "react-icons/lu";
 import { BsFillHouseHeartFill } from "react-icons/bs";
+import { HiMiniInboxStack } from "react-icons/hi2";
+import { HiMiniInboxArrowDown } from "react-icons/hi2";
+
+
 
 
 export const DashboardItems : DashboardItem_interface[] = [
@@ -50,21 +54,21 @@ export const DashboardItems : DashboardItem_interface[] = [
     //     icon : <TbMessage />,
     //     children : []
     // },
-    // { 
-    //     name: "Properties", 
-    //     href: "/dashboard/properties" , 
-    //     accessibility: [UserRole.OWNER ,UserRole.AGENTOWNER , UserRole.AGENTADMIN , UserRole.ADMIN, UserRole.AGENT ],
-    //     icon : <MdHomeWork />,
-    //     children : [
-    //         { 
-    //             name: "Add property", 
-    //             href: "/dashboard/properties/add" , 
-    //             accessibility: [UserRole.AGENTOWNER , UserRole.AGENTADMIN , UserRole.AGENT ],
-    //             icon : <MdAddHomeWork />,
-    //             children : []
-    //         },
-    //     ]
-    // },
+    { 
+        name: "محصولات", 
+        href: "/dashboard/products" , 
+        accessibility: [UserRole.OWNER ,UserRole.ADMIN ],
+        icon : <HiMiniInboxStack />,
+        children : [
+            { 
+                name: "افزودن محصول", 
+                href: "/dashboard/products/add" , 
+                accessibility: [UserRole.OWNER ,UserRole.ADMIN ],
+                icon : <HiMiniInboxArrowDown />,
+                children : []
+            },
+        ]
+    },
     // { 
     //     name: "Liked Properties", 
     //     href: "/dashboard/liked_properties" , 
