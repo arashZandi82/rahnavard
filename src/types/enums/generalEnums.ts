@@ -16,6 +16,7 @@ export enum LogsActions  {
     NEW_BLOG_TESTIMONIALS = 'نظر جدید برای بلاگ اضافه شد',       // New testimonial added to blog
     NEW_BLOG_TESTIMONIALS_REPLY = 'پاسخ به نظر بلاگ اضافه شد',   // Reply to a blog testimonial added
     BLOG_DELETED = 'بلاگ حذف شد',                                // Blog post deleted           
+    PRODUCT_DELETED = 'محصول حذف شد',                                // Blog post deleted           
     BLOG_PUBLISHED = 'بلاگ منتشر شد',                            // Blog marked as published   
     BLOG_REJECTED = 'بلاگ رد شد',                                // Blog rejected or disapproved
 }

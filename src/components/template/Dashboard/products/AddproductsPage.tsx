@@ -133,7 +133,7 @@ const AddproductsPage = () => {
 
     // Basic input handler for simple fields
     const changeHandler = (e: any) => {
-        setData({ ...data, [e.target.name]: e.target.value.trim() });        
+        setData({ ...data, [e.target.name]: e.target.value });        
     };
 
     // Reset thumbnail
