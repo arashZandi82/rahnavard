@@ -132,7 +132,7 @@ export interface Product_ExtraInformation_interface {
  * Interface representing a product
  */
 export interface Product_interface {
-  id?: string;                                 // Optional unique product ID
+  _id ?: string;                                 // Optional unique product ID
   title: string;                               // Product title
   englishTitle: string;                        // English version of the product title
   shortDescription: string;                    // Short product description (for listing views)

@@ -31,7 +31,7 @@ export async function PATCH(req: Request, { params }: { params: { productId: str
       return NextResponse.json({ error: ERROR.SERVER_ERROR }, { status: 500 });
     }
 
-    // Then delete the property from DB
+    // Then delete the Product from DB
     await Product.deleteOne({ _id: Product_id });
 
     await Log.create({
