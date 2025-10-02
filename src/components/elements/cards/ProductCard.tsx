@@ -61,14 +61,12 @@ const ProductCard = ({ product }: { product: Product_interface }) => {
               </p>
             )}
           </div>
-
-          {/* رنگ‌ها */}
-          <div className="flex gap-x-2">
+          <div className="flex gap-x-2 items-center">
             {information.colors.map((col: string, index: number) => (
               <div
                 key={index}
                 style={{ backgroundColor: col }}
-                className="w-5 h-5 rounded-full shadow-sm"
+                className="w-5 h-5 hover:w-6 hover:h-6 rounded-full shadow-sm"
               />
             ))}
           </div>
