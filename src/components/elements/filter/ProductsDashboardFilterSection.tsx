@@ -58,34 +58,42 @@ const ProductsDashboardFilterSection = ({ PATH }: { PATH: string }) => {
     router.push(PATH);
   };
 
+  const selectStyle = "w-full ml-6 appearance-none !text-Regular-Caption-1 px-3 !py-2 border border-Neutral-400 rounded-lg focus:text-Neutral-900 focus:border-Neutral-900 focus:outline-none bg-white";
+
+
   return (
     <div className="mb-6">
-      <h4 className="text-Bold-Normal-text-1 mb-3">فیلتر محصولات:</h4>
-      <div className="flex flex-wrap gap-3 items-center">
+      <h4 className="text-Bold-http://localhost:3000/dashboard/products/68dcfb356ff979db1c679f43-hgjgfjfjfjfjjNormal-text-2 mb-3">فیلتر محصولات:</h4>
+      <div className="flex flex-wrap gap-3 items-center !text-Regular-Caption-1">
         <INPUT
           name="search"
           type="text"
           value={filters.search}
-          placeholder="جستجو..."
+          placeholder="جستجو."
           changeHandler={changeHandler}
           label=""
           error=""
           textarea={false}
-          style="!px-3 !py-2 !min-w-52"
+          style="!px-3 !py-2 !min-w-52 !text-Regular-Caption-1"
         />
-        <select
-            name="status"
-            value={filters.status}
-            onChange={changeHandler}
-            className="px-3 py-2 border rounded-lg"
-            >
-            <option value="">وضعیت</option>
-            {Object.entries(ProductStatus).map(([key, val]) => (
-                <option key={key} value={val}>
-                {val}
-                </option>
-            ))}
-        </select>
+        <div className="relative inline-block">
+            <select
+                name="status"
+                value={filters.status}
+                onChange={changeHandler}
+                className={selectStyle}
+                >
+                <option value="">وضعیت</option>
+                {Object.entries(ProductStatus).map(([key, val]) => (
+                    <option key={key} value={val}>
+                    {val}
+                    </option>
+                ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-neutral-300">
+                <TiArrowSortedDown/>
+            </div>
+        </div>
         <INPUT
           name="minPrice"
           value={filters.minPrice}
@@ -95,7 +103,7 @@ const ProductsDashboardFilterSection = ({ PATH }: { PATH: string }) => {
           label=""
           error=""
           textarea={false}
-          style="!px-3 !py-2 !w-32"
+          style="!px-3 !py-2 !w-32 !text-Regular-Caption-1"
         />
         <INPUT
           name="maxPrice"
@@ -106,60 +114,80 @@ const ProductsDashboardFilterSection = ({ PATH }: { PATH: string }) => {
           label=""
           error=""
           textarea={false}
-          style="!px-3 !py-2 !w-32"
+          style="!px-3 !py-2 !w-32 !text-Regular-Caption-1"
         />
-        <select
-          name="isFeatured"
-          value={filters.isFeatured}
-          onChange={changeHandler}
-          className="px-3 py-2 border rounded-lg"
-        >
-          <option value="">ویژه؟</option>
-          <option value="true">بله</option>
-          <option value="false">خیر</option>
-        </select>
+        <div className="relative inline-block">
+            <select
+                name="isFeatured"
+                value={filters.isFeatured}
+                onChange={changeHandler}
+                className={selectStyle}
+                >
+                <option value="">ویژه؟</option>
+                <option value="true">بله</option>
+                <option value="false">خیر</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-neutral-300">
+                <TiArrowSortedDown/>
+            </div>
+        </div>
 
-        <select
-          name="isNew"
-          value={filters.isNew}
-          onChange={changeHandler}
-          className="px-3 py-2 border rounded-lg"
-        >
-          <option value="">جدید؟</option>
-          <option value="true">بله</option>
-          <option value="false">خیر</option>
-        </select>
+        <div className="relative inline-block">
+            <select
+                name="isNew"
+                value={filters.isNew}
+                onChange={changeHandler}
+                className={selectStyle}
+                >
+                <option value="">جدید؟</option>
+                <option value="true">بله</option>
+                <option value="false">خیر</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-neutral-300">
+                <TiArrowSortedDown/>
+            </div>
+        </div>
 
-        <select
-          name="sortBy"
-          value={filters.sortBy}
-          onChange={changeHandler}
-          className="px-3 py-2 border rounded-lg"
-        >
-          <option value="date">تاریخ</option>
-          <option value="price">قیمت</option>
-        </select>
+        <div className="relative inline-block">
+            <select
+                name="sortBy"
+                value={filters.sortBy}
+                onChange={changeHandler}
+                className={selectStyle}
+                >
+                <option value="date">تاریخ</option>
+                <option value="price">قیمت</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-neutral-300">
+                <TiArrowSortedDown/>
+            </div>
+        </div>
 
-        <select
-          name="sort"
-          value={filters.sort}
-          onChange={changeHandler}
-          className="px-3 py-2 border rounded-lg"
-        >
-          <option value="desc">نزولی</option>
-          <option value="asc">صعودی</option>
-        </select>
+        <div className="relative inline-block">
+            <select
+                name="sort"
+                value={filters.sort}
+                onChange={changeHandler}
+                className={selectStyle}
+                >
+                <option value="desc">نزولی</option>
+                <option value="asc">صعودی</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-neutral-300">
+                <TiArrowSortedDown/>
+            </div>
+        </div>
 
         {/* Action */}
         <button
           onClick={applyFilters}
-          className="bg-Secondary-300 text-Secondary-0 px-4 py-2 rounded-lg"
+          className="bg-primary-600 hover:bg-primary-500 text-primary-100 px-4 py-2 rounded-lg"
         >
           اعمال
         </button>
         <button
           onClick={resetFilters}
-          className="bg-Greyscale-300 text-Greyscale-900 px-4 py-2 rounded-lg"
+          className="bg-Neutral-700 hover:bg-Neutral-600 text-Neutral-100 px-4 py-2 rounded-lg"
         >
           ریست
         </button>
