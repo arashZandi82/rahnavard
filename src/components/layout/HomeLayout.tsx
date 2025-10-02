@@ -3,6 +3,9 @@
 import Navbar from "@/module/Navbar";
 import { usePathname } from "next/navigation";
 import { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 /**
      * HomeLayout component wraps the page content with Navbar and Footer.
@@ -26,12 +29,18 @@ const HomeLayout = ({ children }: { children: React.ReactNode; }) => {
         "/set-password"
     ].includes(pathname);
 
+      const [queryClient] = useState(() => new QueryClient());
+
     return (
         <body>
             {!hideLayout && <Navbar />}
             
             {/* Render main page content */}
-            <div className={``}>{children}</div>
+             <QueryClientProvider client={queryClient} >
+        {children}
+              {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+
+        </QueryClientProvider>
 
             {/* { <Footer />} */}
             

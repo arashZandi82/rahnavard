@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query-devtools": "^5.90.2",
     "@tiptap/extension-highlight": "^3.0.7",
     "@tiptap/extension-image": "^3.0.7",
     "@tiptap/extension-text-align": "^3.0.7",
