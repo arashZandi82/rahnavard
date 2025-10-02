@@ -4,16 +4,17 @@ import PaginationButtons from "@/elements/buttons/PaginationButtons";
 import PaginationButtonsProduts from "@/elements/buttons/PaginationButtonsProduts";
 import ProductCard from "@/elements/cards/ProductCard";
 import ProductCardSkeleton from "@/elements/cards/ProductCardSkeleton";
+import ProductsDashboardFilterSection from "@/elements/filter/ProductsDashboardFilterSection";
 import { Product_interface } from "@/types/modelTypes";
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "src/hook/useproduts";
 
 const ProductsPage = () => {
   const searchParams = useSearchParams();
-  const page = searchParams.get("page") || "15"; // صفحه فعلی
+  const page = searchParams.get("page") || "15"; 
   const limit = 15;
 
-  const { data, isLoading, isError } = useProducts(page, limit);
+  const { data, isLoading, isError } = useProducts(page, limit, searchParams);
 
   if (isError) return <div className="text-red-500">خطا در دریافت محصولات</div>;
 
@@ -28,7 +29,7 @@ const ProductsPage = () => {
   return (
     <div className="px-5 py-5 md:px-7">
       <h1 className="text-Bold-Normal-title-3 mb-6">محصولات</h1>
-
+        <ProductsDashboardFilterSection PATH="/dashboard/products" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {isLoading && !products.length
           ? Array.from({ length: limit }, (_, i) => (
