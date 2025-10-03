@@ -27,6 +27,7 @@ const AddproductsPage = () => {
     // UI states
     const [uploadProgress, setUploadProgress] = useState<number | null>(null);
     const [loading, setLoading] = useState(false);
+    const [showCropModal, setShowCropModal] = useState(false);
 
     // Media states (thumbnail, floor plan, gallery)
     const [thumbnail, setThumbnail] = useState<File | null>(null);
@@ -148,6 +149,7 @@ const AddproductsPage = () => {
         if (file) {
             setThumbnail(file);
             setThumbnail_Preview(URL.createObjectURL(file));
+            setShowCropModal(true);
         }
     }, []);
 
@@ -353,11 +355,15 @@ const AddproductsPage = () => {
                     thumbnail,
                     thumbnail_Preview,
                     ResetThumbnail,
+                    setThumbnail,
                     ThumbnailChangeHandler,
                     images,
                     imagePreviews,
                     handleImageChange,
                     removeImage,
+                    setThumbnail_Preview,
+                    showCropModal,
+                    setShowCropModal
                 }} />}
             </div>
 

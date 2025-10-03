@@ -1,3 +1,4 @@
+import ImageModule from '@/module/ImageModule';
 import React from 'react';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 
@@ -7,11 +8,15 @@ const MediaForm = ({prop} : any) => {
         thumbnail,
         thumbnail_Preview,
         ResetThumbnail,
+        setThumbnail,
         ThumbnailChangeHandler,
         images , 
         imagePreviews,
         handleImageChange,
         removeImage,
+        showCropModal,
+        setShowCropModal,
+        setThumbnail_Preview
     } = prop
 
     return (
@@ -66,6 +71,17 @@ const MediaForm = ({prop} : any) => {
                     ))}
                 </div>
             </div>
+            {showCropModal && thumbnail_Preview && (
+                <ImageModule
+                    title="برش تصویر پروفایل"
+                    show={showCropModal}
+                    setShow={setShowCropModal}
+                    image={thumbnail}
+                    setImage={setThumbnail}
+                    imagePriview={thumbnail_Preview}
+                    setImagePreview={setThumbnail_Preview}
+                />
+            )}
         </div>
     );
 };
