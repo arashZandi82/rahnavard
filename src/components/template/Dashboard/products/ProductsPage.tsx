@@ -39,7 +39,9 @@ const ProductsPage = () => {
               <ProductCard key={product._id} product={product} />
             ))}
       </div>
-
+      {
+        products.length == 0 ? <p className="text-Regular-Normal-text-1 my-8">محصولی یافت نشد!</p> :null
+      }
       {products.length > 0 && (
         <PaginationButtonsProduts
           currentPage={pagination.currentPage}
