@@ -19,10 +19,10 @@ const ProductCardSkeleton = () => {
             <div className="w-16 h-3 bg-gray-200 rounded-md animate-pulse" />
             <div className="w-20 h-4 bg-gray-200 rounded-md animate-pulse" />
           </div>
-          <div className="flex gap-x-2">
+          <div className="flex">
             <div className="w-5 h-5 rounded-full bg-gray-200 animate-pulse" />
-            <div className="w-5 h-5 rounded-full bg-gray-200 animate-pulse" />
-            <div className="w-5 h-5 rounded-full bg-gray-200 animate-pulse" />
+            <div className="w-5 h-5 rounded-full bg-gray-200 animate-pulse -mr-2" />
+            <div className="w-5 h-5 rounded-full bg-gray-200 animate-pulse -mr-2" />
           </div>
         </div>
       </div>
