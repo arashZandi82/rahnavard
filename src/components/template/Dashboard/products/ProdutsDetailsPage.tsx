@@ -1,10 +1,12 @@
 "use client"
 
+import DeleteProduct from '@/elements/buttons/DeleteProduct';
 import Loader from '@/elements/Loader';
 import PropertyGallery from '@/module/PropertyGallery';
 import { Product_ExtraInformation_interface } from '@/types/modelTypes';
 import { replaceDescriptionImageSrc } from '@/utils/BlogDescriptionImageHandler';
 import { formatPriceWithSlash } from '@/utils/price';
+import Link from 'next/link';
 import useproduct from 'src/hook/useproduct';
 
 const ProdutsDetailsPage = ({productId}:{productId: string}) => {
@@ -108,20 +110,27 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
                 <ul className='flex flex-col gap-4'>
                     <li className='grid gap-x-5 grid-cols-5'>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>وزن</p>
-                            <p className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{weight}</p>
+                            <p dir='ltr' className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{`${weight} kg`}</p>
                     </li>
                     <li className='grid gap-x-5 grid-cols-5'>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>طول جعبه</p>
-                            <p className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{dimensions?.height} cm</p>
+                            <p dir='ltr' className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{`${dimensions?.height} cm`}</p>
                     </li>
                     <li className='grid gap-x-5 grid-cols-5'>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>عرض جعبه</p>
-                            <p className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{dimensions?.width} cm</p>
+                            <p dir='ltr' className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{`${dimensions?.width} cm`}</p>
                     </li>
                     <li className='grid gap-x-5 grid-cols-5'>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>عمق جعبه</p>
-                            <p className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{dimensions?.depth} cm</p>
+                            <p dir='ltr' className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{`${dimensions?.depth} cm`}</p>
                     </li>
+                </ul>
+            </div>
+            <div className='border border-gray-200 bg-primary-0 rounded-xl mt-6 p-4' >
+                <h2 className='text-Bold-Normal-text-1 mb-4'>اکشن ها:</h2>
+                <ul className='flex items-center gap-x-2'>
+                    <li><DeleteProduct id={_id || ''} /></li>
+                    <li><Link href={`/dashboard/products/edit/${_id}`} className="bg-primary-300 hover:bg-primary-600 text-primary-800 hover:text-primary-50 w-fit text-Regular-Normal-text-2 px-2 py-1 rounded-md cursor-pointer" >ویرایش</Link></li>
                 </ul>
             </div>
         </div>
