@@ -3,7 +3,7 @@ import React from 'react';
 
 const MountaineeringSupplies = () => {
     return (
-        <div className='lg:pt-20 pt-16'>
+        <div className=''>
             <div className="bg-MountaineeringSupplies-texture bg-cover bg-bottom lg:bg-center py-16">
                 <div className="flex flex-col md:flex-row justify-between gap-y-4 mt-96 container">
                     {/* Page title */}
