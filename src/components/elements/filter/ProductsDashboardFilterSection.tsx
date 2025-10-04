@@ -63,7 +63,7 @@ const ProductsDashboardFilterSection = ({ PATH }: { PATH: string }) => {
 
   return (
     <div className="mb-6">
-      <h4 className="text-Bold-http://localhost:3000/dashboard/products/68dcfb356ff979db1c679f43-hgjgfjfjfjfjjNormal-text-2 mb-3">فیلتر محصولات:</h4>
+      <h4 className="text-Bold-Normal-text-2 mb-3">فیلتر محصولات:</h4>
       <div className="flex flex-wrap gap-3 items-center !text-Regular-Caption-1">
         <INPUT
           name="search"

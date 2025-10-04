@@ -25,6 +25,7 @@ const config = {
       backgroundImage: {
         'ForgotPassword-texture': "url('/img/resetpasswordbaner.jpg')",
         'Blogs-texture': "url('/img/blogPageBanner.png')",
+        'MountaineeringSupplies-texture': "url('/img/MountaineeringSuppliesBanner.png')",
 
       },
       colors: styleGuide_colors

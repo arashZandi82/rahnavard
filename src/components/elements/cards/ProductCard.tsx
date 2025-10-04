@@ -4,7 +4,7 @@ import ImageWithFallback from '../ImageWithFallback';
 import Link from 'next/link';
 import slugify from 'slugify';
 
-const ProductCard = ({ product }: { product: Product_interface }) => {
+const ProductCard = ({ product  , targetPage}: { product: Product_interface , targetPage?:string }) => {
   const { _id, title, englishTitle, thumbnail, description, isFeatured, isNew, information } = product;
 
   const slug = slugify(`${_id}-${englishTitle}`, { lower: true, strict: true });
@@ -19,7 +19,7 @@ const ProductCard = ({ product }: { product: Product_interface }) => {
     <div className="w-full p-4 min-h-[380px] border border-gray-200 bg-primary-0 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
       {/* تصویر محصول */}
       <div className="relative">
-        <Link href={`/dashboard/products/${slug}`} className="block overflow-hidden rounded-2xl">
+        <Link href={`${targetPage ? targetPage : '/dashboard/products'}/${slug}`} className="block overflow-hidden rounded-2xl">
           <ImageWithFallback
             src={thumbnail || ''}
             alt={description}
