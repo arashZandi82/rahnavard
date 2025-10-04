@@ -34,8 +34,8 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
                     <h1 className='text-Bold-Normal-text-1'>{title}</h1>
                     <h2 className='text-Bold-Normal-text-2 text-Neutral-700 mt-1'>{englishTitle}</h2>
                     <p className='my-3 flex items-center gap-x-2 text-Bold-Normal-text-2'>برند:<span className='text-Secondary-500'>{brand}</span></p>
-                    <div className='mt-8 grid grid-cols-2 gap-4 text-Bold-Normal-text-2 text-neutral-900'>
-                        <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl col-span-2'>
+                    <div className='mt-8 grid md:grid-cols-2 grid-cols-1 gap-4 lg:text-Bold-Normal-text-2 text-Bold-Caption-1 text-neutral-900'>
+                        <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl md:col-span-2'>
                             <p>رنگبندی:</p>
                             <div className="flex gap-x-2 items-center">
                                 {colors.map((col: string, index: number) => (
@@ -49,7 +49,7 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
                         </div>
                         <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
                             <p>قیمت:</p>
-                            <p>{formatPriceWithSlash(+price.toLocaleString())} تومان</p>
+                            <p>{price.toLocaleString()} تومان</p>
                         </div>
                         <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
                             <p>تعداد:</p>
@@ -64,7 +64,7 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
                         {
                             discount.haveDiscount && discountedPrice ? <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
                                 <p>قیمت با تخفیف:</p>
-                                <p>{formatPriceWithSlash(+discountedPrice?.toLocaleString())} تومان</p>
+                                <p>{discountedPrice?.toLocaleString()} تومان</p>
                             </div> : null
                         }
                     </div>
@@ -76,7 +76,7 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
             </div>
             <div className='border border-gray-200 bg-primary-0 rounded-xl mt-6 p-4' >
                 <h2 className='text-Bold-Normal-text-1 mb-4'>توضیحات محصول:</h2>
-                <ul className='flex flex-col gap-4'>
+                <ul className='flex flex-col gap-4 text-Regular-Caption-1 md:text-Regular-Normal-text-2 lg:text-Regular-Normal-text-1'>
                     {
                         extraInformation.map((info: Product_ExtraInformation_interface , index : number) => <li className='grid gap-x-5 grid-cols-5' key={index}>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>{info.key}</p>
@@ -107,7 +107,7 @@ const ProdutsDetailsPage = ({productId}:{productId: string}) => {
             </div>
             <div className='border border-gray-200 bg-primary-0 rounded-xl mt-6 p-4' >
                 <h2 className='text-Bold-Normal-text-1 mb-4'>دیگر ویژگی ها:</h2>
-                <ul className='flex flex-col gap-4'>
+                <ul className='flex flex-col gap-4 text-Regular-Caption-1 md:text-Regular-Normal-text-2 lg:text-Regular-Normal-text-1'>
                     <li className='grid gap-x-5 grid-cols-5'>
                             <p className='py-2 px-3 col-span-2 bg-primary-200/65 rounded-md'>وزن</p>
                             <p dir='ltr' className='py-2 px-3 col-span-3 bg-primary-200/65 rounded-md'>{`${weight} kg`}</p>
