@@ -21,7 +21,7 @@ const fetchProducts = async (page: string, limit: number, searchParams: URLSearc
   return res.json();
 };
 
-export const useProducts = (page: string, limit: number , searchParams : URLSearchParams , url:string ) => {
+export const useProducts = (page: string, limit: number , searchParams : URLSearchParams , url?:string ) => {
 
   const queryString = searchParams.toString();
 
