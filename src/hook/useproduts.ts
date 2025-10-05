@@ -12,11 +12,11 @@ interface ProductsResponse {
     limit: number;
   };
 }
-const fetchProducts = async (page: string, limit: number, searchParams: URLSearchParams , url:string) => {
+const fetchProducts = async (page: string, limit: number, searchParams: URLSearchParams , url?:string) => {
   const query = searchParams.toString();
-  const encodedUrl = encodeURIComponent(url);
-
-  const res = await fetch(`/api/product/get/${encodedUrl}?page=${page}&limit=${limit}&${query}`);
+  const encodedUrl = url ? encodeURIComponent(url) : null;
+  const fetchUrl = url ? `/api/product/get/${encodedUrl}?page=${page}&limit=${limit}&${query}` : `/api/product?page=${page}&limit=${limit}&${query}`
+  const res = await fetch(fetchUrl);
   if (!res.ok) throw new Error("Failed to fetch products");
   return res.json();
 };
