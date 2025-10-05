@@ -8,12 +8,12 @@ import { Product_interface } from "@/types/modelTypes";
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "src/hook/useproduts";
 
-const ShowProducts = () => {
+const ShowProducts = ({url}:{url:string}) => {
     const searchParams = useSearchParams();
     const page = searchParams.get("page") || "15"; 
-    const limit = 15;
+    const limit = 15;    
     
-    const { data, isLoading, isError } = useProducts(page, limit, searchParams);
+    const { data, isLoading, isError } = useProducts(page, limit, searchParams ,url);
 
     if (isError) return <div className="text-red-500">خطا در دریافت محصولات</div>;
 

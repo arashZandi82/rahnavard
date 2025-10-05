@@ -18,7 +18,7 @@ const MountaineeringSupplies = () => {
                 </div>
             </div>
             <div className='py-16 md:py-20 lg:py-24 container'>
-                <ShowProducts/>
+                <ShowProducts url='لوازم کوهنوردی'/>
             </div>
         </div>
     );

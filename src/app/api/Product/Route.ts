@@ -1,3 +1,4 @@
+import { Category } from './../../../types/modelTypes';
 import { authOptions } from "@/lib/auth"; 
 import Product from "@/models/Product"; 
 import { ERROR, MESSAGE } from "@/types/enums/MessageUnum"; 
@@ -168,8 +169,8 @@ export async function GET(req: Request) {
 			if (minPrice > 0) filter["information.price"].$gte = minPrice;
 			if (maxPrice > 0) filter["information.price"].$lte = maxPrice;
 		}
-		if (isFeatured !== null) filter.isFeatured = isFeatured === "true";
-		if (isNew !== null) filter.isNew = isNew === "true";
+		if (isFeatured) filter.isFeatured = isFeatured === "true";
+    if (isNew) filter.isNew = isNew === "true"; 
 
 		// Sorting
 		let sortOption: Record<string, 1 | -1> = {};
