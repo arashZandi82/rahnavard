@@ -15,6 +15,7 @@ const ProdutsPageDetails = ({productId}:{productId: string}) => {
     const { data, isLoading, isError } = useproduct(productId);
 
     const [ amount , setAmount ] = useState<number>(1)
+    const [ selectedColor , setColor ] = useState<number>(0)
 
     if (isLoading) return(<div className='flex items-center py-16 md:py-20 lg:py-40 md:px-7 justify-center h-screen'><Loader w={60} /></div>);
     if (isError || !data?.product || !data?.product?.images ) return(<div className='flex items-center justify-center h-full'><p>Something went wrong</p></div>);
@@ -37,7 +38,7 @@ const ProdutsPageDetails = ({productId}:{productId: string}) => {
     }
 
     return (
-        <div className="px-5 py-16 md:py-20 lg:py-40 md:px-7">
+        <div className="px-5 py-24 md:py-32 lg:py-40 md:px-7">
             <div className='flex flex-col lg:flex-row w-full h-fit gap-8'>
                 <PropertyGallery className='lg:w-5/12 p-4 rounded-xl border border-gray-200 bg-primary-0' images={[...images , ...images]} thumbnail={thumbnail}  description={description} id={_id} />
                 <div className='border border-gray-200 bg-primary-0 flex-1 rounded-xl p-4 '>
@@ -45,28 +46,29 @@ const ProdutsPageDetails = ({productId}:{productId: string}) => {
                     <h2 className='text-Bold-Normal-text-2 text-Neutral-700 mt-1'>{englishTitle}</h2>
                     <p className='my-3 flex items-center gap-x-2 text-Bold-Normal-text-2'>برند:<span className='text-Secondary-500'>{brand}</span></p>
                     <div className='mt-8 grid md:grid-cols-2 grid-cols-1 gap-4 lg:text-Bold-Normal-text-2 text-Bold-Caption-1 text-neutral-900'>
-                        <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl md:col-span-2'>
+                        <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 w-full items-center rounded-xl col-span-2'>
                             <p>رنگبندی:</p>
                             <div className="flex gap-x-2 items-center">
                                 {colors.map((col: string, index: number) => (
                                     <div
                                         key={index}
-                                        style={{ backgroundColor: col }}
-                                        className="w-5 h-5 hover:w-6 hover:h-6 rounded-full shadow-sm"
+                                        style={{ backgroundColor: col  }}
+                                        onClick={() => setColor(index)}
+                                        className={`w-5 h-5 rounded-full shadow-sm ${index == selectedColor ? `ring-2 ring-Neutral-400 border` : ''}`}
                                     />
                                 ))}
                             </div>
                         </div>
                         {
-                            discount.haveDiscount && discountedPrice ? <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
+                            discount.haveDiscount && discountedPrice ? <div className=' bg-Neutral-300 col-span-2 lg:col-span-1 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
                                 <p>قیمت :</p>
                                 <p>{discountedPrice?.toLocaleString()} تومان</p>
-                            </div> :  <div className=' bg-Neutral-300 flex gap-x-2 py-3 px-4 items-center rounded-xl'>
+                            </div> :  <div className=' bg-Neutral-300 col-span-2 lg:col-span-1  flex gap-x-2 py-3 px-4 items-center rounded-xl'>
                                 <p>قیمت:</p>
                                 <p>{price.toLocaleString()} تومان</p>
                             </div>
                         }
-                        <div className="py-2 px-4 rounded-xl border-2 border-Secondary-500 flex items-center justify-center gap-x-3">
+                        <div className="py-1 px-4 rounded-xl border-2 border-Secondary-500 lg:col-span-1 col-span-2 flex items-center justify-center gap-x-3">
                             <button onClick={()=> amountHandler("+")} disabled={amount == quantity} className="text-3xl hover:text-Secondary-300 disabled:hover:text-3xl disabled:text-Secondary-700 disabled:cursor-not-allowed text-Secondary-600"><CiSquarePlus/></button>
                             <p className="text-Regular-Normal-text-1">{amount}</p>
                             <button onClick={()=> amountHandler("-")} disabled={amount == 1} className="text-3xl hover:text-Secondary-300 disabled:hover:text-3xl disabled:text-Secondary-700 disabled:cursor-not-allowed text-Secondary-600"><CiSquareMinus/></button>
