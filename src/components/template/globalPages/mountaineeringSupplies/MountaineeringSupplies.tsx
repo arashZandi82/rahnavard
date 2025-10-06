@@ -1,6 +1,6 @@
 const ShowProducts = dynamic(() => import("@/module/ShowProducts"), { ssr: false });
+const ProductsPagesFilterSection = dynamic(() => import("@/elements/filter/ProductsPagesFilterSection"), { ssr: false });
 
-import ProductsPagesFilterSection from '@/elements/filter/ProductsPagesFilterSection';
 import Product from '@/models/Product';
 import connectDB from '@/utils/connectDB';
 import dynamic from 'next/dynamic';
