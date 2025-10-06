@@ -4,11 +4,12 @@ import PaginationButtonsProducts from "@/elements/buttons/PaginationButtonsProdu
 import ProductCard from "@/elements/cards/ProductCard";
 import ProductCardSkeleton from "@/elements/cards/ProductCardSkeleton";
 import ProductsDashboardFilterSection from "@/elements/filter/ProductsDashboardFilterSection";
+import ProductsPagesFilterSection from "@/elements/filter/ProductsPagesFilterSection";
 import { Product_interface } from "@/types/modelTypes";
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "src/hook/useproduts";
 
-const ShowProducts = ({url}:{url:string}) => {
+const ShowProducts = ({url }:{url:string}) => {
     const searchParams = useSearchParams();
     const page = searchParams.get("page") || "15"; 
     const limit = 15;    
@@ -26,8 +27,7 @@ const ShowProducts = ({url}:{url:string}) => {
     };
 
     return (
-        <div className="px-5 py-5 md:px-7">
-            <ProductsDashboardFilterSection PATH="/mountaineering-supplies" />
+        <div className="px-5 pb-5 md:px-7">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 my-10">
                 {isLoading && !products.length
                     ? Array.from({ length: limit }, (_, i) => (

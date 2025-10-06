@@ -1,9 +1,21 @@
 const ShowProducts = dynamic(() => import("@/module/ShowProducts"), { ssr: false });
 
+import ProductsPagesFilterSection from '@/elements/filter/ProductsPagesFilterSection';
+import Product from '@/models/Product';
+import connectDB from '@/utils/connectDB';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const MountaineeringSupplies = () => {
+const MountaineeringSupplies = async () => {
+
+
+    await connectDB()
+
+    const Allbrands = await Product.distinct("brand")
+    const normalizedBrands = Allbrands.map(b => b.trim().replace(/\s+/g, " ").toLowerCase());
+    const uniqueBrands = Array.from(new Set(normalizedBrands));
+    
+
     return (
         <div className=''>
             <div className="bg-MountaineeringSupplies-texture bg-cover bg-bottom lg:bg-center py-16">
@@ -20,6 +32,9 @@ const MountaineeringSupplies = () => {
                 </div>
             </div>
             <div className='py-16 md:py-20 lg:py-24 container'>
+                <div className='lg:flex items-center justify-center'>
+                    <ProductsPagesFilterSection PATH="/mountaineering-supplies" brands={uniqueBrands} />
+                </div>
                 <ShowProducts url='لوازم کوهنوردی'/>
             </div>
         </div>

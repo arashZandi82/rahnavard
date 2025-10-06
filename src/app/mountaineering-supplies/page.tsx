@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-    return (<MountaineeringSupplies />);
+    return (<MountaineeringSupplies  />);
 };
 
 export default page;
