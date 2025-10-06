@@ -6,14 +6,14 @@ import { Metadata } from 'next';
 import React from 'react';
 import slugify from 'slugify';
 
-
-// Fetch function
+// ------------------ Fetch product ------------------
 async function fetchProductById(productId: string): Promise<Product_interface | null> {
   await connectDB();
   const product = await Product.findById(productId);
   return product;
 }
 
+// ------------------ Metadata ------------------
 export async function generateMetadata({ params }: { params: { productSlug: string } }): Promise<Metadata> {
   const mongoId = params.productSlug.split("-")[0];
 
@@ -46,10 +46,10 @@ export async function generateMetadata({ params }: { params: { productSlug: stri
         type: "article",
         images: [
             {
-            url: product.thumbnail || "/img/thumbnail.png",
-            width: 1200,
-            height: 630,
-            alt: product.title,
+              url: product.thumbnail || "/img/thumbnail.png",
+              width: 1200,
+              height: 630,
+              alt: product.title,
             },
         ],
     },
@@ -63,24 +63,23 @@ export async function generateMetadata({ params }: { params: { productSlug: stri
   };
 }
 
+// ------------------ Static Params ------------------
 export async function generateStaticParams() {
   await connectDB();
   const products: Product_interface[] = await Product.find();
 
   return products.map((p) => {
     const slug = slugify(`${p._id}-${p.englishTitle}`, { lower: true, strict: true });
-    return { productsSlug: slug };
+    return { productSlug: slug }; // ⚡ کلید باید دقیقا مثل پارامتر داینامیک فایل باشه
   });
-
 }
 
-
+// ------------------ Page ------------------
 const page = async ({ params }: { params: { productSlug: string } }) => {
+  const fullSlug = params.productSlug;
+  const mongoId = fullSlug.split("-")[0];
 
-    const fullSlug = params.productSlug;
-    const mongoId = fullSlug.split("-")[0];
-
-    return (<ProdutsPageDetails productId={mongoId}/>);
+  return <ProdutsPageDetails productId={mongoId} />;
 };
 
 export default page;
