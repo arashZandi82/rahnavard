@@ -10,6 +10,8 @@ import { join } from "path";
 import Log from "@/models/log"; 
 import { LogsActions, UserRole } from "@/types/enums/generalEnums";
 import { ensureDirExists, processAndSaveImageForProperties } from "@/utils/files";
+import slugify from 'slugify';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req: Request) {
   try {
@@ -109,6 +111,11 @@ export async function POST(req: Request) {
     if (descriptionImagesNames.length) newProduct.descriptionImages = descriptionImagesNames;
 
     await newProduct.save();
+
+    const slug = slugify(`${newProduct._id}-${newProduct.englishTitle}`, { lower: true, strict: true });
+    const path = `/products/${slug}`;
+
+      revalidatePath(path);
 
     // Log creation
     await Log.create({
