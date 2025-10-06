@@ -47,7 +47,7 @@ const ProductsPagesFilterSection = ({ PATH , brands }: { PATH: string  , brands:
         if (val && val !== "") query[key] = val;
         });
 
-        OpenHandler()
+        setOpenMore(false)
 
         router.push(`${PATH}?${new URLSearchParams(query).toString()}`);
     };

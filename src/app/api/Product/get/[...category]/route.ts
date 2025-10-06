@@ -24,6 +24,8 @@ export async function GET( req: Request, { params }: { params: { category: strin
 		const maxPrice = parseFloat(searchParams.get("maxPrice") || "0");
 		const isFeatured = searchParams.get("isFeatured");
 		const isNew = searchParams.get("isNew");
+		const brand = searchParams.get("brand");
+		
 
 		await connectDB();
 
@@ -32,6 +34,8 @@ export async function GET( req: Request, { params }: { params: { category: strin
 
 		if (levelOne) filter["category.levelOne"] = levelOne;
 		if (levelTwo) filter["category.levelTwo"] = levelTwo;
+
+		if(brand) filter["brand"] = { $regex: `${brand.trim()}`, $options: "i" }
 
 		if (search) {
 		filter.$or = [
@@ -58,6 +62,10 @@ export async function GET( req: Request, { params }: { params: { category: strin
 		} else {
 			sortOption = { createdAt: sortOrder };
 		}
+
+
+		console.log(filter);
+		
 
 		// Total products matching filter
 		const totalProducts = await Product.countDocuments(filter);

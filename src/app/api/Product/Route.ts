@@ -145,6 +145,7 @@ export async function GET(req: Request) {
 		const maxPrice = parseFloat(searchParams.get("maxPrice") || "0");
 		const isFeatured = searchParams.get("isFeatured");
 		const isNew = searchParams.get("isNew");
+		const brand = searchParams.get("brand");
 
 		await connectDB();
 
@@ -153,6 +154,9 @@ export async function GET(req: Request) {
 
 		if (levelOne) filter["category.levelOne"] = levelOne;
 		if (levelTwo) filter["category.levelTwo"] = levelTwo;
+
+    if(brand) filter["brand"] = { $regex: `${brand.trim()}`, $options: "i" }
+
 
 		if (search) {
 		filter.$or = [
