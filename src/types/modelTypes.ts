@@ -40,11 +40,12 @@ export interface User_Interface {
  * Interface representing a user's saved address.
  */
 export interface User_address_interface {
+    title : string
     estate: string;              // Estate, region, or neighborhood
     city: string;                // City name
     text_address: string;        // Full detailed address
-    postalCode: number;          // Postal/ZIP code
-    createdAt: Date;             // Address creation date
+    postalCode: string;          // Postal/ZIP code
+    createdAt?: Date;             // Address creation date
     updatedAt?: Date;            // Last update date
 }
 

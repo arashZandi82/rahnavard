@@ -51,10 +51,11 @@ const UserSchema = new Schema<User_Interface>(
     },
     addresses: [
       {
+        title: { type: String, required: true },
         estate: { type: String, required: true },
         city: { type: String, required: true },
         text_address: { type: String, required: true },
-        postalCode: { type: Number, required: true },
+        postalCode: { type: String, required: true },
         createdAt: { type: Date, default: Date.now },
         updatedAt: { type: Date, default: Date.now },
       },

@@ -13,6 +13,8 @@ import { LuMessagesSquare } from "react-icons/lu";
 import { BsFillHouseHeartFill } from "react-icons/bs";
 import { HiMiniInboxStack } from "react-icons/hi2";
 import { HiMiniInboxArrowDown } from "react-icons/hi2";
+import { FaMapLocationDot } from "react-icons/fa6";
+
 
 
 
@@ -36,6 +38,13 @@ export const DashboardItems : DashboardItem_interface[] = [
                 href: "/dashboard/profile/edit" , 
                 accessibility: [UserRole.ALL],
                 icon : <FiEdit/>,
+                children : []
+            },
+            { 
+                name: "آدرس ها", 
+                href: "/dashboard/profile/addresses" , 
+                accessibility: [UserRole.ALL],
+                icon : <FaMapLocationDot/>,
                 children : []
             },
             { 
