@@ -5,7 +5,7 @@ import Link from 'next/link';
 import slugify from 'slugify';
 import LikeProduct from '../buttons/LikeProduct';
 
-const ProductCard = ({ product  , targetPage, isliked ,isDashboard}: { product: Product_interface , targetPage?:string , isliked: boolean , isDashboard?: boolean }) => {
+const ProductCard = ({ product  , targetPage, isliked ,isDashboard}: { product: Product_interface , targetPage?:string , isliked?: boolean , isDashboard?: boolean }) => {
 	const { _id, title, englishTitle, thumbnail, description, isFeatured, isNew, information } = product;
 
 	const slug = slugify(`${_id}-${englishTitle}`, { lower: true, strict: true });
