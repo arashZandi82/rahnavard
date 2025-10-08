@@ -58,7 +58,7 @@ const page = async () => {
     if (!user || !validRoles?.includes(user.role as UserRole)) redirect("/dashboard/profile");
 
 
-    return (<ProductsPage />);
+    return (<ProductsPage userLikedProduts={user.liked_products || []} />);
 };
 
 export default page;

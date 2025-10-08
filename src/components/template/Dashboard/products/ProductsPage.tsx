@@ -9,7 +9,7 @@ import { Product_interface } from "@/types/modelTypes";
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "src/hook/useproduts";
 
-const ProductsPage = () => {
+const ProductsPage = ({userLikedProduts}:{userLikedProduts: string[]}) => {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "15"; 
   const limit = 15;
@@ -36,7 +36,7 @@ const ProductsPage = () => {
               <ProductCardSkeleton key={i} />
             ))
           : products.map((product) => (
-              <ProductCard key={product._id} product={product} />
+              <ProductCard key={product._id} product={product} isliked={ userLikedProduts.find(id => id == product._id) ? true : false } />
             ))}
       </div>
       {
