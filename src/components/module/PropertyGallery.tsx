@@ -3,6 +3,7 @@
 import ImageWithFallback from "@/elements/ImageWithFallback";
 import { useEffect, useRef, useState } from "react";
 import Slider from "./Slider";
+import LikeProduct from "@/elements/buttons/LikeProduct";
 
 interface Props {
   images: string[];
@@ -40,13 +41,16 @@ const PropertyGallery = ({ images, thumbnail, tags, description , id , isliked  
 
   return (
     <div className={className}>
-       <div>
+       <div className="relative">
             <ImageWithFallback
                 src={thumbnail || ""}
                 alt={description || "Property thumbnail"}
                 type="thumbnail"
                 style="w-full !rounded-xl h-full"
             />
+            <div className="absolute top-2 left-2 flex flex-col gap-y-1">
+              <LikeProduct id={id} isliked={isliked} />
+					</div>
        </div>
        <div dir={'ltr'} className="grid grid-cols-3 gap-x-4 mt-4">
         {

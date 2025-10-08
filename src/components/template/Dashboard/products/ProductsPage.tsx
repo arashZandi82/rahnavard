@@ -36,7 +36,7 @@ const ProductsPage = ({userLikedProduts}:{userLikedProduts: string[]}) => {
               <ProductCardSkeleton key={i} />
             ))
           : products.map((product) => (
-              <ProductCard key={product._id} product={product} isliked={ userLikedProduts.find(id => id == product._id) ? true : false } />
+              <ProductCard key={product._id} product={product} isDashboard={true} isliked={ userLikedProduts.find(id => id == product._id) ? true : false } />
             ))}
       </div>
       {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import slugify from 'slugify';
 import LikeProduct from '../buttons/LikeProduct';
 
-const ProductCard = ({ product  , targetPage, isliked}: { product: Product_interface , targetPage?:string , isliked: boolean }) => {
+const ProductCard = ({ product  , targetPage, isliked ,isDashboard}: { product: Product_interface , targetPage?:string , isliked: boolean , isDashboard?: boolean }) => {
 	const { _id, title, englishTitle, thumbnail, description, isFeatured, isNew, information } = product;
 
 	const slug = slugify(`${_id}-${englishTitle}`, { lower: true, strict: true });
@@ -26,9 +26,11 @@ const ProductCard = ({ product  , targetPage, isliked}: { product: Product_inter
 					/>
 				</Link>
 				{/* برچسب‌ها */}
-				<div className="absolute top-2 left-2 flex flex-col gap-y-1">
-					<LikeProduct id={_id} isliked={isliked} />
-				</div>
+				{
+					isDashboard ? <div className="absolute top-2 left-2 flex flex-col gap-y-1">
+						<LikeProduct id={_id} isliked={isliked} />
+					</div> : null
+				}
 				<div className="absolute top-2 right-2 flex flex-col gap-y-1">
 					{isFeatured && (
 						<span className="px-3 py-1 text-Bold-Caption-2 rounded-full bg-Secondary-400 shadow-sm">

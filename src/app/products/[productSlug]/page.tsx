@@ -1,6 +1,7 @@
 import Product from '@/models/Product';
 import ProdutsPageDetails from '@/template/globalPages/ProdutsPageDetails';
 import { Product_interface } from '@/types/modelTypes';
+import { checkSession } from '@/utils/CheckSession';
 import connectDB from '@/utils/connectDB';
 import { Metadata } from 'next';
 import React from 'react';
@@ -76,10 +77,24 @@ export async function generateStaticParams() {
 
 // ------------------ Page ------------------
 const page = async ({ params }: { params: { productSlug: string } }) => {
+
   const fullSlug = params.productSlug;
   const mongoId = fullSlug.split("-")[0];
 
-  return <ProdutsPageDetails productId={mongoId} />;
+  // Connect to the MongoDB database
+  await connectDB();
+
+  // Check if the user session is valid and get user info
+  const { user } = await checkSession();
+
+  let isliked : boolean = false
+
+
+  if(user && user.liked_products?.length){
+    isliked = user.liked_products.includes(mongoId)
+  }
+
+  return <ProdutsPageDetails productId={mongoId} isliked={isliked} />;
 };
 
 export default page;

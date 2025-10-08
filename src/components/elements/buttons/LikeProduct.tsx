@@ -43,7 +43,7 @@ const LikeProduct = ({id , isliked}: any) => {
         <div className="">
         {
 
-            loading ? <Loader w={4} /> : <p onClick={likeHandler} className="flex items-center px-2 py-1 rounded-md  text-lg gap-x-1 md:text-Body-MD-Small text-Error-700 hover:bg-primary-50">{isliked ? <IoIosHeart /> : <IoIosHeartEmpty /> }</p>
+            loading ? <Loader w={4} /> : <p onClick={likeHandler} className="flex items-center px-2 py-1 rounded-md  text-xl gap-x-1 md:text-Body-MD-Small text-Error-700 hover:bg-primary-50">{isliked ? <IoIosHeart /> : <IoIosHeartEmpty /> }</p>
                                 
         } 
         </div>

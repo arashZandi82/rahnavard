@@ -10,7 +10,7 @@ import useproduct from "src/hook/useproduct";
 import { CiSquareMinus } from "react-icons/ci";
 
 
-const ProdutsPageDetails = ({productId}:{productId: string}) => {
+const ProdutsPageDetails = ({productId , isliked}:{productId: string , isliked: boolean}) => {
 
     const { data, isLoading, isError } = useproduct(productId);
 
@@ -38,9 +38,9 @@ const ProdutsPageDetails = ({productId}:{productId: string}) => {
     }
 
     return (
-        <div className="px-5 py-24 md:py-32 lg:py-40 md:px-7">
+        <div className="px-5 py-24 md:py-32 lg:py-40 md:px-7 container">
             <div className='flex flex-col lg:flex-row w-full h-fit gap-8'>
-                <PropertyGallery className='lg:w-5/12 p-4 rounded-xl border border-gray-200 bg-primary-0' images={[...images , ...images]} thumbnail={thumbnail}  description={description} id={_id} />
+                <PropertyGallery className='lg:w-5/12 p-4 rounded-xl border border-gray-200 bg-primary-0' images={[...images , ...images]} thumbnail={thumbnail} isliked={isliked} description={description} id={_id} />
                 <div className='border border-gray-200 bg-primary-0 flex-1 rounded-xl p-4 '>
                     <h1 className='text-Bold-Normal-text-1'>{title}</h1>
                     <h2 className='text-Bold-Normal-text-2 text-Neutral-700 mt-1'>{englishTitle}</h2>
