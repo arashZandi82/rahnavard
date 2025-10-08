@@ -8,6 +8,8 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
+import { GoTrash } from "react-icons/go";
+
 
 
 const AdressesPage = ({adresses , id} : {adresses: User_address_interface[] , id:string}) => {
@@ -15,6 +17,7 @@ const AdressesPage = ({adresses , id} : {adresses: User_address_interface[] , id
     const hasMounted = useRef(false);
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const [loadingdelte, setLoadingdelete] = useState(false);
 
 
     const [ showForm , setShowForm ] = useState<boolean>(false)
@@ -94,6 +97,36 @@ const AdressesPage = ({adresses , id} : {adresses: User_address_interface[] , id
 
     }
 
+    const DeleteHandler = async (index : number) =>{
+
+        const confirmDelete = confirm("آیا می خواهید این آدرس را حذف کنید؟ ");
+        if (!confirmDelete) return
+
+        setLoadingdelete(true)
+
+        try {
+            const res = await fetch(`/api/auth/adress/delete/${index}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+            });
+
+            const resData = await res.json();
+
+            if (resData.error) {
+                toast.error(resData.error);
+            } else {
+                toast.success(resData.message);
+                window.location.reload();
+            }
+        } catch (err: any) {
+            const errorMessage = err.response?.data?.error || ERROR.PROBLEM;
+            toast.error(errorMessage);
+        } finally {
+            setLoadingdelete(false);
+        }
+
+    }
+
     return (
         <div className='px-5 py-5 md:px-7'>
             <div className='flex items-center justify-between'>
@@ -170,9 +203,10 @@ const AdressesPage = ({adresses , id} : {adresses: User_address_interface[] , id
                             {
                                 adresses.length ? <ul className='grid grid-cols-1 gap-y-3 mt-3'>
                                     {
-                                        adresses.map((address : User_address_interface , index : number) => <li className=' rounded-xl bg-primary-200 px-4 py-3 lg:hover:bg-Secondary-100'>
-                                            <div>
+                                        adresses.map((address : User_address_interface , index : number) => <li key={index} className=' rounded-xl bg-primary-200 px-4 py-3 lg:hover:bg-Secondary-100'>
+                                            <div className='flex items-center justify-between'>
                                                 <p className='text-Bold-Normal-text-1'>{address.title}</p>
+                                                <p onClick={()=> DeleteHandler(index)} className='p-2 rounded-lg bg-Error-400 text-Error-800 cursor-pointer hover:bg-Error-500 w-fit'>{loadingdelte ? <Loader w={4}/> :<GoTrash/>}</p>
                                             </div>
                                             <ul className='mt-4 '>
                                                 <li className='flex gap-x-2 items-center'>

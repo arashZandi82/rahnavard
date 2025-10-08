@@ -37,6 +37,7 @@ export enum MESSAGE {
     NEW_BLOG_TESTIMONIALS_REPLY = "پاسخ نظر با موفقیت اضافه شد!",
     USER_DELETE = "کاربر با موفقیت حذف شد!",
     PRODUCT_DELETE = "محصول با موفقیت حذف شد!",
+    ADDRESS_DELETE = "آدرس با موفقیت حذف شد!",
     PASSWORD_RESET_EMAIL = "ایمیل بازیابی رمز عبور با موفقیت ارسال شد.",
     PASSWORD_RESET = "رمز عبور با موفقیت تغییر یافت.",
     VALID_TOKEN = "توکن معتبر است. می‌توانید رمز عبور را تغییر دهید.",
