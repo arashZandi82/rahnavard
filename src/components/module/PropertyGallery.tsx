@@ -4,6 +4,7 @@ import ImageWithFallback from "@/elements/ImageWithFallback";
 import { useEffect, useRef, useState } from "react";
 import Slider from "./Slider";
 import LikeProduct from "@/elements/buttons/LikeProduct";
+import { Product_Discount_interface } from "@/types/modelTypes";
 
 interface Props {
   images: string[];
@@ -13,9 +14,10 @@ interface Props {
   id ?: string
   isliked ?: boolean
   className ? :string
+  discount ?: Product_Discount_interface
 }
 
-const PropertyGallery = ({ images, thumbnail, tags, description , id , isliked  ,className}: Props) => {
+const PropertyGallery = ({ images, thumbnail, tags, description , id , isliked  ,className , discount}: Props) => {
   const [show, setShow] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -51,6 +53,11 @@ const PropertyGallery = ({ images, thumbnail, tags, description , id , isliked  
             <div className="absolute top-2 left-2 flex flex-col gap-y-1">
               <LikeProduct id={id} isliked={isliked} />
 					</div>
+          {
+            discount?.haveDiscount ? <div className="absolute top-2 pulsate-fwd text-Bold-Caption-1 bg-Error-300 px-3 py-2 rounded-lg text-Error-700 right-2 flex flex-col gap-y-1">
+                <p>{discount.discountPercent}٪ تخقیف</p>
+          </div> : null
+          }
        </div>
        <div dir={'ltr'} className="grid grid-cols-3 gap-x-4 mt-4">
         {

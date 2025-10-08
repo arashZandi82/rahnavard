@@ -14,6 +14,11 @@
         background-color: white;
       }
 
+.pulsate-fwd {
+	-webkit-animation: pulsate-fwd 2s ease-in-out infinite both;
+	        animation: pulsate-fwd 2s ease-in-out infinite both;
+}
+
  @-webkit-keyframes scale-up-ver-top {
     0% {
       -webkit-transform: scaleY(0.4);
@@ -58,5 +63,35 @@
 
   .tiptap img {
     @apply w-1/2 mx-auto;
+  }
+}
+
+
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
