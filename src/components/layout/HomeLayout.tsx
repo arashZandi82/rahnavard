@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Footer from "@/module/Footer";
 
 /**
      * HomeLayout component wraps the page content with Navbar and Footer.
@@ -37,13 +38,12 @@ const HomeLayout = ({ children }: { children: React.ReactNode; }) => {
             
             {/* Render main page content */}
              <QueryClientProvider client={queryClient} >
-        {children}
-              {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+                {children}
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+            </QueryClientProvider>
 
-        </QueryClientProvider>
-
-            {/* { <Footer />} */}
-            
+            { <Footer />}
+        
             {/* Toast notifications container */}
             <Toaster />
         </body>
