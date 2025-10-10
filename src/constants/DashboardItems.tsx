@@ -1,19 +1,13 @@
 import { UserRole } from "@/types/enums/generalEnums";
 import { DashboardItem_interface } from "@/types/generalTypes";
 import { IoMdPerson } from "react-icons/io";
-import { FiEdit } from "react-icons/fi";
+import { FiEdit, FiShoppingCart } from "react-icons/fi";
 import { LuBookCopy, LuBookPlus, LuLayoutDashboard } from "react-icons/lu";
-import { MdAddHomeWork, MdHomeWork, MdLockReset } from "react-icons/md";
-import { RiFootprintFill } from "react-icons/ri";
-import { FaUserFriends, FaWpforms } from "react-icons/fa";
-import { RiAdminFill } from "react-icons/ri";
-import { FaBuildingUser, FaFileCircleQuestion, FaRegCircleQuestion } from "react-icons/fa6";
-import { TbMessage } from "react-icons/tb";
-import { LuMessagesSquare } from "react-icons/lu";
 import { BsBagHeart } from "react-icons/bs";
 import { HiMiniInboxStack } from "react-icons/hi2";
 import { HiMiniInboxArrowDown } from "react-icons/hi2";
 import { FaMapLocationDot } from "react-icons/fa6";
+import { MdLockReset } from "react-icons/md";
 
 
 
@@ -77,6 +71,13 @@ export const DashboardItems : DashboardItem_interface[] = [
                 children : []
             },
         ]
+    },
+    { 
+        name: "سبد خرید", 
+        href: "/dashboard/cart" , 
+        accessibility: [ UserRole.ALL],
+        icon : <FiShoppingCart />,
+        children : []
     },
     { 
         name: "موردعلاقه ها", 

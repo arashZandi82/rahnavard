@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbMenu2 } from "react-icons/tb";
 import { IoPerson } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
@@ -15,6 +15,8 @@ import { DashboardItems } from '@/constants/DashboardItems';
 import { DashboardItem_interface } from '@/types/generalTypes';
 import { UserRole } from '@/types/enums/generalEnums';
 import RenderDashboardNavbarItem from '@/elements/RenderDashboardNavbarItem';
+import { RiProfileLine } from "react-icons/ri";
+import { FiShoppingCart } from 'react-icons/fi';
 
 
 
@@ -28,10 +30,29 @@ const Navbar = () => {
     const [ isHover , setIsHover ] = useState<boolean>(false)
     const [ ShowItem , setShowItem ] = useState<boolean>(false)
     const [ navIndex, setnavIndex ] = useState<number>(0)
-
+    const [ cartLength , setCartLength ] = useState<number>(0)
+    const [open, setOpen] = useState(false);
 
     const isOpenHandler = () => setIsOpen( !isOpen )
     const ShowItemHandler = () => setShowItem( !ShowItem )
+
+    useEffect(() => {
+        const fetchCartLength = async () => {
+            if (status !== "authenticated") return;
+
+            try {
+                const res = await fetch(`/api/auth/cart/length`);
+                if (!res.ok) return;
+
+                const data = await res.json();
+                setCartLength(data.cartLength || 0);
+            } catch (err) {
+                console.error("Error fetching cart length:", err);
+            }
+        };
+
+        fetchCartLength();
+    }, [status]);
 
     return (
         <div className="fixed w-full bg-primary-800/85 z-50 rounded-b-[20px]">
@@ -58,7 +79,7 @@ const Navbar = () => {
                             <Link href='/blogs' className='hover:text-primary-400'>بلاگ</Link>
                         </li>
                     </ul>
-                    <ul className='text-primary-400 flex gap-x-4 flex-1 lg:flex-none  items-center md:w-full lg:w-fit '>
+                    <ul className='text-primary-400  relative flex gap-x-4 flex-1 lg:flex-none  items-center md:w-full lg:w-fit '>
                         <li onMouseEnter={()=> setIsHover(false)}>
                             <Link href='/' className='hover:text-primary-50 text-2xl'><LuSearch/></Link>
                         </li>
@@ -67,11 +88,22 @@ const Navbar = () => {
                         </li>
                         {
                                status == "authenticated" ?
-                                <li onMouseEnter={()=> setIsHover(false)}>
-                                    <Link href='/dashboard' className='hover:text-primary-50 text-2xl'><IoPerson/></Link>
+                                <li onMouseEnter={()=> setIsHover(false)} className=' relative'>
+                                    <p onClick={()=> setOpen(true)} className='hover:text-primary-50 text-2xl'><IoPerson/></p>
+                                    {cartLength && !open ? <p className=' absolute -top-2 w-4 h-4 -right-1 flex items-center justify-center  text-Regular-Caption-2 rounded-full bg-Secondary-600 text-Secondary-200'>{cartLength}</p> : null}
                                 </li> : <li onMouseEnter={()=> setIsHover(false)}>
                                     <Link href='/login' className='hover:text-primary-50 text-2xl'><IoMdLogIn/></Link>
                                 </li> 
+                        }
+                        {
+                            open && <li className='absolute top-16 flex-col flex gap-y-3 w-44 text-Regular-Normal-text-2 rounded-lg text-Secondary-50 bg-Secondary-700/85 py-5 px-3'>
+                                <Link onClick={()=> setOpen(false)}  className='py-3 px-3 hover:bg-Secondary-900 flex items-center gap-x-3 rounded-md' href="/dashboard"><RiProfileLine className='text-lg'/><span>داشبورد</span></Link>
+                                <Link onClick={()=> setOpen(false)}  className='py-3 px-3 hover:bg-Secondary-900 flex relative items-center gap-x-3 rounded-md' href="/dashboard/cart">
+                                    <FiShoppingCart  className='text-lg'/>
+                                    <span>سبد خرید</span>
+                                    {cartLength && open ? <p className=' absolute top-1 w-4 h-4 right-1 flex items-center justify-center  text-Regular-Caption-2 rounded-full bg-Secondary-500 text-Secondary-900'>{cartLength}</p> : null}
+                                </Link>
+                            </li>
                         }
                         <li className='hidden lg:flex'>
                             <Logo className='lg:w-20' pathClass='group-hover:fill-primary-50' />

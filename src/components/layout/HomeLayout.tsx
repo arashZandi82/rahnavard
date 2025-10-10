@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Footer from "@/module/Footer";
+import TopProgressBar from "@/module/TopProgressBar";
 
 /**
      * HomeLayout component wraps the page content with Navbar and Footer.
@@ -38,6 +39,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode; }) => {
             
             {/* Render main page content */}
              <QueryClientProvider client={queryClient} >
+                <TopProgressBar />
                 {children}
             {/* <ReactQueryDevtools initialIsOpen={false} /> */}
             </QueryClientProvider>
