@@ -13,27 +13,40 @@ export interface LOG_Interface {
 
 
 /**
- * Interface representing a basic user in the system.
+ * Represents a user in the system.
  */
 export interface User_Interface {
-    _id?: string;                // Optional unique identifier (MongoDB ID)
-    email: string;               // User's email address
-    password: string;            // User's hashed password
-    name?: string;               // First name (optional)
-    last_name?: string;          // Last name (optional)
-    phone_number?: string;       // Phone number (optional)
-    profile_picture?: string;    // Profile picture URL (optional)
-    liked_products?: string[];   // Array of product IDs the user has liked
-    role: UserRole;              // User's role (e.g., Admin, Agent, Customer)
-    verified: boolean;           // Indicates if the user is verified
-    orders?: string[];           // Array of order IDs associated with the user
-    addresses: User_address_interface[]; // List of saved addresses
-    createdAt: Date;             // Account creation date
-    updatedAt?: Date;            // Last update date
-    resetPassword?: {            // Password reset information (optional)
-        token: string;           // Password reset token
-        expires: Date;           // Token expiration date
+    _id?: string; // Optional unique identifier (MongoDB ObjectID)
+    email: string; // User's email address
+    password: string; // User's hashed password
+    name?: string; // User's first name (optional)
+    last_name?: string; // User's last name (optional)
+    phone_number?: string; // User's phone number (optional)
+    profile_picture?: string; // URL of the user's profile picture (optional)
+    liked_products?: string[]; // Array of product IDs the user has liked
+    role: UserRole; // User's role (e.g., Admin, Agent, Customer)
+    verified: boolean; // Indicates whether the user's account is verified
+    orders?: string[]; // Array of order IDs associated with the user
+    cart: {
+        products: User_cart_Products_interface[]; // List of products in the user's cart
+        totalFee: number; // Total price of all products in the cart
     };
+    addresses: User_address_interface[]; // List of saved addresses
+    createdAt: Date; // Date when the account was created
+    updatedAt?: Date; // Date when the account was last updated (optional)
+    resetPassword?: { // Password reset information (optional)
+        token: string; // Password reset token
+        expires: Date; // Token expiration date
+    };
+}
+
+/**
+ * Represents a single product in the user's cart.
+ */
+export interface User_cart_Products_interface {
+    productId: string; // ID of the product
+    quantity: number; // Quantity of the product
+    color: number; // Selected color index or identifier
 }
 
 /**

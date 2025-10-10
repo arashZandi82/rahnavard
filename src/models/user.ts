@@ -8,8 +8,8 @@ const UserSchema = new Schema<User_Interface>(
     email: {
       type: String,
       required: true,
-      unique: true,         // Ensures no duplicate emails
-      trim: true,           // Removes whitespace
+      unique: true, // Ensures no duplicate emails
+      trim: true,   // Removes whitespace
     },
     password: {
       type: String,
@@ -32,7 +32,7 @@ const UserSchema = new Schema<User_Interface>(
       default: "",
     },
     liked_products: {
-      type: [String],        // Array of product IDs
+      type: [String], // Array of product IDs
       default: [],
     },
     role: {
@@ -46,8 +46,18 @@ const UserSchema = new Schema<User_Interface>(
       default: false,
     },
     orders: {
-      type: [String],        // Array of order IDs
+      type: [String], // Array of order IDs
       default: [],
+    },
+    cart: {
+      products: [
+        {
+          productId: { type: String, required: true },
+          quantity: { type: Number, required: true, default: 1 },
+          color: { type: Number, required: true, default: 0 },
+        },
+      ],
+      totalFee: { type: Number, required: true, default: 0 },
     },
     addresses: [
       {
@@ -61,19 +71,13 @@ const UserSchema = new Schema<User_Interface>(
       },
     ],
     resetPassword: {
-      token: {
-        type: String,
-        default: "",
-      },
-      expires: {
-        type: Date,          // should be Date, not String
-        default: null,
-      },
+      token: { type: String, default: "" },
+      expires: { type: Date, default: null },
     },
   },
   {
     collection: "User",
-    timestamps: true,        // Auto-manages createdAt & updatedAt
+    timestamps: true, // Automatically manages createdAt & updatedAt
   }
 );
 
