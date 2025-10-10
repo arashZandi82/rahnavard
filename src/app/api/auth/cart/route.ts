@@ -21,10 +21,10 @@ export const PATCH = async (req: Request) => {
     }
 
     const parsedData = JSON.parse(dataRaw);
-    const { userId, productId, color, quantity } = parsedData;
+    const { productId, color, quantity } = parsedData;
 
     //  Validate required fields
-    if (!userId || !productId || typeof color === "undefined" || !quantity) {
+    if (!productId ||  typeof color === "undefined"  || !quantity) {
       return NextResponse.json({ error: ERROR.INVALID_DATA }, { status: 400 });
     }
 
@@ -32,10 +32,8 @@ export const PATCH = async (req: Request) => {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ error: ERROR.LOGIN }, { status: 401 });
 
-    if (session.user.id !== userId)  return NextResponse.json({ error: ERROR.UNAUTHORIZED }, { status: 403 });
-
     //  Find the user 
-    const user = await User.findById(userId);
+    const user = await User.findById(session.user.id);
     if (!user)  return NextResponse.json({ error: ERROR.CANT_FIND_USER }, { status: 404 });
 
     //  Add new product to cart

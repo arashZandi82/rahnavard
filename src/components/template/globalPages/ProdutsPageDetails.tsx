@@ -8,6 +8,9 @@ import { useState } from "react";
 import { CiSquarePlus } from "react-icons/ci";
 import useproduct from "src/hook/useproduct";
 import { CiSquareMinus } from "react-icons/ci";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { ERROR } from "@/types/enums/MessageUnum";
 
 
 const ProdutsPageDetails = ({productId , isliked}:{productId: string , isliked: boolean}) => {
@@ -16,6 +19,8 @@ const ProdutsPageDetails = ({productId , isliked}:{productId: string , isliked: 
 
     const [ amount , setAmount ] = useState<number>(1)
     const [ selectedColor , setColor ] = useState<number>(0)
+    const [loading, setLoading] = useState(false);
+
 
     if (isLoading) return(<div className='flex items-center py-16 md:py-20 lg:py-40 md:px-7 justify-center h-screen'><Loader w={60} /></div>);
     if (isError || !data?.product || !data?.product?.images ) return(<div className='flex items-center justify-center h-full'><p>Something went wrong</p></div>);
@@ -34,6 +39,36 @@ const ProdutsPageDetails = ({productId , isliked}:{productId: string , isliked: 
             setAmount( amount + 1)
         } else if ( amount != 1 ){
             setAmount( amount - 1)
+        }
+    }
+
+    const addToCartHandeler = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        
+        const formData = new FormData();
+        formData.append("data", JSON.stringify({
+            productId : _id, 
+            color : selectedColor, 
+            quantity : amount
+        }));
+
+        try {
+            const response = await axios.patch('/api/auth/cart', formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            const resData = response.data;
+            setLoading(false);
+
+            if (resData.error) {
+                toast.error(resData.error);
+            } else {
+                toast.success(resData.message);
+            }
+        } catch (err: any) {
+            setLoading(false);
+            toast.error(ERROR.PROBLEM);
         }
     }
 
@@ -73,7 +108,7 @@ const ProdutsPageDetails = ({productId , isliked}:{productId: string , isliked: 
                             <p className="text-Regular-Normal-text-1">{amount}</p>
                             <button onClick={()=> amountHandler("-")} disabled={amount == 1} className="text-3xl hover:text-Secondary-300 disabled:hover:text-3xl disabled:text-Secondary-700 disabled:cursor-not-allowed text-Secondary-600"><CiSquareMinus/></button>
                         </div>
-                        <button className="bg-Secondary-500 hover:bg-Secondary-400 hover:shadow-md py-3 px-4 rounded-xl col-span-2">افزودن به سبد خرید</button>
+                        <button onClick={addToCartHandeler} className="bg-Secondary-500 hover:bg-Secondary-400 hover:shadow-md py-3 px-4 rounded-xl col-span-2">{loading ? "..." : "افزودن به سبد خرید"}</button>
                     </div>
                     <div className=' mt-12 flex gap-x-2'>
                         <h3 className='text-Bold-Normal-text-2 text-Secondary-500'>توضیحات:</h3>
