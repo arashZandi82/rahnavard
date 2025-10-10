@@ -58,8 +58,6 @@ export const PATCH = async (req: Request) => {
 
       userCartProductsTotalFee += finalPrice * cartProduct.quantity;
 
-      // Decrease stock safely
-      product.information.quantity = Math.max(0, info.quantity - cartProduct.quantity);
       await product.save();
     }
 
