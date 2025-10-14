@@ -27,6 +27,7 @@ const config = {
         'Blogs-texture': "url('/img/blogPageBanner.png')",
         'MountaineeringSupplies-texture': "url('/img/MountaineeringSuppliesBanner.png')",
         'MountaineeringSupplies-Tent-texture': "url('/img/tentBanner.png')",
+        'MountaineeringSupplies-Backpack-texture': "url('/img/backbackbanner.png')",
 
       },
       colors: styleGuide_colors
