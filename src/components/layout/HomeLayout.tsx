@@ -44,7 +44,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode; }) => {
             {/* <ReactQueryDevtools initialIsOpen={false} /> */}
             </QueryClientProvider>
 
-            { <Footer />}
+            { !hideLayout && <Footer />}
         
             {/* Toast notifications container */}
             <Toaster />
