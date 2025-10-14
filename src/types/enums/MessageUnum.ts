@@ -52,5 +52,7 @@ export enum MESSAGE {
     NEW_FAQ = "سؤال جدید با موفقیت اضافه شد!",
     NEW_ADRESS = "آدرس جدید با موفقیت اضافه شد!",
     NEW_PRODUCT_ADD_TO_CART = " محصول با موفقیت به سبد خرید اضافه شد!",
-    NEW_PRODUCT = "محصول جدید با موفقیت اضافه شد!"
+    NEW_PRODUCT = "محصول جدید با موفقیت اضافه شد!",
+    CART_DELETE_ITEM = "محصول خذف شد!",
+    CART_UPDATE_ITEM = "تعداد محصول بروزرسانی شد"
 }
