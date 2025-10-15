@@ -8,7 +8,9 @@ export async function GET( req: Request, { params }: { params: { category: strin
 		const { searchParams } = new URL(req.url);
 
         const decoded = (params.category|| []).map(decodeURIComponent);
-        const [levelOne, levelTwo] = decoded[0].split("/");           
+        const [levelOne, levelTwo] = decoded.length === 2 
+    ? decoded 
+    : decoded[0].split("/");          
 
 		// Query params
 		const page = Math.max(parseInt(searchParams.get("page") || "1"), 1);
