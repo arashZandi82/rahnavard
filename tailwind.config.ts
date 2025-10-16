@@ -28,6 +28,7 @@ const config = {
         'MountaineeringSupplies-texture': "url('/img/MountaineeringSuppliesBanner.png')",
         'MountaineeringSupplies-Tent-texture': "url('/img/tentBanner.png')",
         'MountaineeringSupplies-Backpack-texture': "url('/img/backbackbanner.png')",
+        'MountaineeringSupplies-sleepbag-texture': "url('/img/sleepbagbanner.png')",
 
       },
       colors: styleGuide_colors

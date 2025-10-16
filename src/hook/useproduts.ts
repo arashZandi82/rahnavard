@@ -28,7 +28,7 @@ export const useProducts = (page: string, limit: number , searchParams : URLSear
   return useQuery({
     queryKey: ["products", page, queryString , url],
     queryFn: () => fetchProducts(page, limit, searchParams , url),
-     placeholderData: keepPreviousData,// ✅ نسخه 5 به بعد
+     placeholderData: keepPreviousData,
     // staleTime: 5 * 60 * 1000,
   });
 };
