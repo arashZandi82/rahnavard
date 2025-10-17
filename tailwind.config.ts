@@ -29,7 +29,7 @@ const config = {
         'MountaineeringSupplies-Tent-texture': "url('/img/tentBanner.png')",
         'MountaineeringSupplies-Backpack-texture': "url('/img/backbackbanner.png')",
         'MountaineeringSupplies-sleepbag-texture': "url('/img/sleepbagbanner.png')",
-
+        'MountaineeringSupplies-cookware-texture': "url('/img/cookwareBanner.png')",
       },
       colors: styleGuide_colors
     },
