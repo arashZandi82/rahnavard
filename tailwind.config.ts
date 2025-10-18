@@ -33,6 +33,7 @@ const config = {
         'MountaineeringSupplies-hydrationPack-texture': "url('/img/hydrationPackBanner.png')",
         'MountaineeringSupplies-Stove-texture': "url('/img/stoveBanner.png')",
         'MountaineeringSupplies-waistBag-texture': "url('/img/waistBagBanner.png')",
+        'MountaineeringSupplies-trekkingPole-texture': "url('/img/trekkingPoleBanner.png')",
       },
       colors: styleGuide_colors
     },
