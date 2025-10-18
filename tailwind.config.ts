@@ -31,6 +31,7 @@ const config = {
         'MountaineeringSupplies-sleepbag-texture': "url('/img/sleepbagbanner.png')",
         'MountaineeringSupplies-cookware-texture': "url('/img/cookwareBanner.png')",
         'MountaineeringSupplies-hydrationPack-texture': "url('/img/hydrationPackBanner.png')",
+        'MountaineeringSupplies-Stove-texture': "url('/img/stoveBanner.png')",
       },
       colors: styleGuide_colors
     },
