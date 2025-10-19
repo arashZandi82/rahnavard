@@ -1,0 +1,52 @@
+{
+  "title": "کیف دوفر کوهنوردی Black Diamond مدل StoneHauler 90L",
+  "englishTitle": "Black Diamond StoneHauler 90L Duffel Bag",
+  "shortDescription": "کیف حرفه‌ای و فوق‌العاده مقاوم برای حمل تجهیزات کوهنوردی و سفرهای ماجراجویانه، با ظرفیت ۹۰ لیتر و ساختاری ضدسایش و ضدآب.",
+  "description": "کیف StoneHauler 90L محصولی از برند معتبر Black Diamond است که برای کوهنوردان، صخره‌نوردان و ماجراجویانی طراحی شده که به تجهیزات بادوام و کاربردی نیاز دارند. این کیف از پارچه‌ی فوق‌العاده مقاوم 1500d Epic با روکش ضدآب TPU ساخته شده است و می‌تواند به راحتی در برابر سایش، خاک و رطوبت مقاومت کند. طراحی هوشمند این کیف شامل سیستم حمل ErgoGrip برای توزیع وزن بهینه و کاهش فشار بر شانه‌ها است. بخش داخلی دارای دیواره‌های تقویت‌شده با فریم بالستیکی است تا از تغییر شکل کیف در شرایط سخت جلوگیری کند. علاوه بر فضای اصلی بزرگ، چندین جیب داخلی برای نظم‌دهی بهتر وسایل در نظر گرفته شده است. بندهای شانه‌ای قابل‌جداسازی، دسته‌های تقویت‌شده در اطراف کیف، و سیستم “Haul-Loop Carry” برای آویزان کردن یا کشیدن کیف از ویژگی‌های کلیدی این مدل هستند. StoneHauler 90L انتخابی ایده‌آل برای سفرهای طولانی و کمپینگ‌های چندروزه است.",
+  "brand": "Black Diamond",
+  "thumbnail": "https://blackdiamondequipment.com/cdn/shop/files/StoneHauler_90L_Duffel_Black_Angle.jpg",
+  "images": [
+    "https://blackdiamondequipment.com/cdn/shop/files/StoneHauler_90L_Duffel_Black_Angle.jpg",
+    "https://blackdiamondequipment.com/cdn/shop/files/StoneHauler_90L_Duffel_Black_Open.jpg",
+    "https://blackdiamondequipment.com/cdn/shop/files/StoneHauler_90L_Duffel_Black_Detail.jpg",
+    "https://blackdiamondequipment.com/cdn/shop/files/StoneHauler_90L_Duffel_Black_Carry.jpg"
+  ],
+  "category": {
+    "levelOne": "تجهیزات کوهنوردی",
+    "levelTwo": "کیف و دوفر"
+  },
+  "information": {
+    "quantity": 12,
+    "colors": ["مشکی"],
+    "price": 249.95,
+    "discount": {
+      "haveDiscount": false,
+      "discountPercent": 0
+    }
+  },
+  "extraInformation": [
+    { "key": "حجم", "value": "۹۰ لیتر" },
+    { "key": "جنس بدنه", "value": "پارچه بالستیک 1500D با روکش TPU ضدآب" },
+    { "key": "سیستم حمل", "value": "ErgoGrip با بندهای شانه‌ای قابل تنظیم و جداسازی" },
+    { "key": "جیب‌ها", "value": "جیب‌های داخلی توری برای نظم‌دهی وسایل" },
+    { "key": "ویژگی خاص", "value": "دیواره‌های تقویت‌شده و فریم بالستیکی برای حفظ شکل" },
+    { "key": "مناسب برای", "value": "سفر، کمپینگ، کوهنوردی و ماجراجویی‌های طولانی" },
+    { "key": "کشور سازنده", "value": "ایالات متحده آمریکا" }
+  ],
+  "tags": ["Duffel Bag", "Black Diamond", "Outdoor Gear", "Travel", "Mountaineering"],
+  "rating": {
+    "average": 4.8,
+    "count": 132
+  },
+  "status": "موجود",
+  "createdAt": "2025-10-19T00:00:00Z",
+  "updatedAt": "2025-10-19T00:00:00Z",
+  "dimensions": {
+    "width": 37,
+    "height": 80,
+    "depth": 37
+  },
+  "weight": 1.6,
+  "isFeatured": true,
+  "isNew": false
+}
