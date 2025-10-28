@@ -43,6 +43,7 @@ const config = {
         'campingSupplies-CoolBox-texture': "url('/img/cool-box.png')",
         'campingSupplies-tableChair-texture': "url('/img/table-chair.png')",
         'campingSupplies-groundmat-texture': "url('/img/ground-mat.png')",
+        'aboutus-texture': "url('/img/aboutus.png')",
       },
       colors: styleGuide_colors
     },
