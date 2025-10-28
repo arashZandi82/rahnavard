@@ -37,6 +37,7 @@ const config = {
         'MountaineeringSupplies-knife-texture': "url('/img/knife.png')",
         'MountaineeringSupplies-poncho-texture': "url('/img/poncho.png')",
         'campingSupplies-poncho-texture': "url('/img/camping.png')",
+        'campingSupplies-travelCanopy-texture': "url('/img/travel-canopy.png')",
       },
       colors: styleGuide_colors
     },
