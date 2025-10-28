@@ -40,6 +40,7 @@ const config = {
         'campingSupplies-travelCanopy-texture': "url('/img/travel-canopy.png')",
         'campingSupplies-hardcase-texture': "url('/img/hardcase.png')",
         'campingSupplies-tent-texture': "url('/img/tent.png')",
+        'campingSupplies-CoolBox-texture': "url('/img/cool-box.png')",
       },
       colors: styleGuide_colors
     },
