@@ -41,6 +41,7 @@ const config = {
         'campingSupplies-hardcase-texture': "url('/img/hardcase.png')",
         'campingSupplies-tent-texture': "url('/img/tent.png')",
         'campingSupplies-CoolBox-texture': "url('/img/cool-box.png')",
+        'campingSupplies-tableChair-texture': "url('/img/table-chair.png')",
       },
       colors: styleGuide_colors
     },
