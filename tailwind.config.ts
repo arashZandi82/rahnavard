@@ -38,6 +38,7 @@ const config = {
         'MountaineeringSupplies-poncho-texture': "url('/img/poncho.png')",
         'campingSupplies-poncho-texture': "url('/img/camping.png')",
         'campingSupplies-travelCanopy-texture': "url('/img/travel-canopy.png')",
+        'campingSupplies-hardcase-texture': "url('/img/hardcase.png')",
       },
       colors: styleGuide_colors
     },
