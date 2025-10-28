@@ -35,6 +35,7 @@ const config = {
         'MountaineeringSupplies-waistBag-texture': "url('/img/waistBagBanner.png')",
         'MountaineeringSupplies-trekkingPole-texture': "url('/img/trekkingPoleBanner.png')",
         'MountaineeringSupplies-knife-texture': "url('/img/knife.png')",
+        'MountaineeringSupplies-poncho-texture': "url('/img/poncho.png')",
       },
       colors: styleGuide_colors
     },
