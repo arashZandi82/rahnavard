@@ -45,6 +45,7 @@ const config = {
         'campingSupplies-groundmat-texture': "url('/img/ground-mat.png')",
         'aboutus-texture': "url('/img/aboutus.png')",
         'contactus-texture': "url('/img/contactus.png')",
+        'homepage-texture': "url('/img/homepage.png')",
       },
       colors: styleGuide_colors
     },
