@@ -44,6 +44,7 @@ const config = {
         'campingSupplies-tableChair-texture': "url('/img/table-chair.png')",
         'campingSupplies-groundmat-texture': "url('/img/ground-mat.png')",
         'aboutus-texture': "url('/img/aboutus.png')",
+        'contactus-texture': "url('/img/contactus.png')",
       },
       colors: styleGuide_colors
     },

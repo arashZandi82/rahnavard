@@ -70,7 +70,7 @@ const Navbar = () => {
                             <Link href='/' className='hover:text-primary-400'>خانه</Link>
                         </li>
                         <li onMouseEnter={()=> setIsHover(false)}>
-                            <Link href='/' className='hover:text-primary-400'>تماس با ما</Link>
+                            <Link href='/contactUs' className='hover:text-primary-400'>تماس با ما</Link>
                         </li>
                         <li onMouseEnter={()=> setIsHover(false)}>
                             <Link href='/aboutus'className='hover:text-primary-400'>درباره ما</Link>
