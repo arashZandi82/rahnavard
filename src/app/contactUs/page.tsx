@@ -50,7 +50,7 @@ const page = () => {
             <div className="bg-contactus-texture bg-cover bg-center lg: py-16">
                 <div className="flex flex-col md:flex-row justify-between gap-y-4 mt-96 container">
                     {/* Page title */}
-                    <h3 className="text-Regular-Normal-title-2 md:text-Regular-Subtitle text-primary-0">درباره‌ما</h3>
+                    <h3 className="text-Regular-Normal-title-2 md:text-Regular-Subtitle text-primary-0">تماس باما</h3>
 
                     {/* Page description */}
                     <p className="text-Body-RL-Medium md:text-Body-RL-Large md:w-1/2 text-Neutral-200">{text}</p>
