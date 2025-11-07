@@ -70,6 +70,7 @@ const ProductSchema = new Schema<Product_interface>(
   },
   {
     timestamps: true, // createdAt, updatedAt
+     suppressReservedKeysWarning: true
   }
 );
 
