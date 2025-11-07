@@ -1,4 +1,4 @@
-import { Category } from './../../../types/modelTypes';
+import { Category } from '../../../types/modelTypes';
 import { authOptions } from "@/lib/auth"; 
 import Product from "@/models/Product"; 
 import { ERROR, MESSAGE } from "@/types/enums/MessageUnum"; 
